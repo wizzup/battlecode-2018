@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 docker stop $(docker ps -q)
 docker container rm $(docker container ls -aq)

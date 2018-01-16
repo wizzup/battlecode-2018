@@ -1,7 +1,7 @@
 include ../../helpers.mk
 
 ifeq ($(CUR_OS),linux)
-    JAVAINCLUDE=-I /usr/lib/jvm/java-8-openjdk-amd64/include -I /usr/lib/jvm/java-8-openjdk-amd64/include/linux
+    JAVAINCLUDE=-I /nix/store/4cfaq2x3gp29vqj6lq254f285hh94xlx-openjdk-8u152b16/include -I /nix/store/4cfaq2x3gp29vqj6lq254f285hh94xlx-openjdk-8u152b16/include/linux
     LIBS=-lutil -ldl -Lrt -lpthread -lgcc_s -lc -lm
     TARGET=src/bc/libbattlecode-java-linux.so
 endif

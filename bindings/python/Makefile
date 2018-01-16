@@ -7,7 +7,7 @@ build:.build-marker
 	@# we have to clean first because python doesn't check lib dependencies for changes
 	@make clean
 	$(call build_command,CFLAGS="-O0" python3 setup.py build_ext --inplace)
-	$(call build_command,CFLAGS="-O0" pypy3 setup.py build_ext --inplace)
+#	$(call build_command,CFLAGS="-O0" pypy3 setup.py build_ext --inplace)
 	$(call build_command,touch .build-marker)
 
 release:.release-marker
@@ -15,7 +15,7 @@ release:.release-marker
 	@# we have to clean first because python doesn't check lib dependencies for changes
 	@make clean
 	$(call build_command,RELEASE=1 python3 setup.py build_ext --inplace)
-	$(call build_command,RELEASE=1 pypy3 setup.py build_ext --inplace)
+#	$(call build_command,RELEASE=1 pypy3 setup.py build_ext --inplace)
 	$(call build_command,touch .release-marker)
 
 test: build

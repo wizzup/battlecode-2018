@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash
+
 mtput() {
     if command -v tput > /dev/null; then
         tput $@
@@ -16,15 +18,15 @@ if uname -s | grep -Fqe MINGW ; then
 fi
 
 # Use tput to show different colors in the terminal
-mtput setaf 5
-mtput sgr0
-pip3 install -q --user cffi tqdm werkzeug ujson psutil
-
-RESULT=$?
-if [ $RESULT -ne 0 ]; then
-    echo "Warning: pip install failed!"
-    echo "I'll keep going, but maybe try to fix whatever error you just got."
-fi
+# mtput setaf 5
+# mtput sgr0
+# pip3 install -q --user cffi tqdm werkzeug ujson psutil
+#
+# RESULT=$?
+# if [ $RESULT -ne 0 ]; then
+#     echo "Warning: pip install failed!"
+#     echo "I'll keep going, but maybe try to fix whatever error you just got."
+# fi
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PYTHONPATH="$DIR/battlecode/python:$PYTHONPATH"
 export NODOCKER=1
